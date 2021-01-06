@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebApp.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApp.Controllers
 {
@@ -25,6 +27,15 @@ namespace WebApp.Controllers
 
         public IActionResult Privacy()
         {
+            return View();
+        }
+
+        [Authorize]
+        public IActionResult Dashboard()
+        {
+            ViewData["Id"] = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            ViewData["Email"] = User.FindFirst(ClaimTypes.Email).Value;
+
             return View();
         }
 
