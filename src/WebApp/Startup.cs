@@ -53,7 +53,7 @@ namespace WebApp
             {
                 options.ClientId = Configuration["oidc:onelogin-clientid"];
                 options.ClientSecret = Configuration["oidc:onelogin-clientsecret"];
-                options.Authority = "https://openid-connect.onelogin.com/oidc";
+                options.Authority = "https://openid-connect.onelogin.com/oidc/2";
                 
                 options.ResponseType = "code";
                 options.GetClaimsFromUserInfoEndpoint = true;
