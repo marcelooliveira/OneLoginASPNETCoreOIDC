@@ -67,6 +67,11 @@ namespace WebApp
                         return Task.CompletedTask;
                     }
                 };
+
+                options.NonceCookie.SameSite
+                    = Microsoft.AspNetCore.Http.SameSiteMode.Unspecified;
+                options.CorrelationCookie.SameSite
+                    = Microsoft.AspNetCore.Http.SameSiteMode.Unspecified;
             });
         }
 
